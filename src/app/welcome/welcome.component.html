@@ -1,0 +1,28 @@
+
+<h1>Country wise Covid Details</h1>
+
+    <div class="table">
+     
+    <div class="css-table-header">
+       <div>Confirmed Cases</div>
+       <div>Critical Cases</div>
+       <div>Deaths</div>
+       <div>Recovered</div>
+    </div>
+    <div class="css-table-body">
+        <div class="css-table-row">
+         <!--  {{r.CriticalCases}} {{r.Deaths}} {{r.Recovered}} -->
+         <div>{{items.confirmed}}</div>
+         <div>{{items.critical}}</div>
+         <div>{{items.deaths}}</div>
+         <div>{{items.recovered}}</div>
+       
+    </div>
+</div></div>
+
+<nav>
+   
+      <a routerLink="/countries" routerLinkActive="active">List of Countries</a><br>
+      <a routerLink="/input-page" routerLinkActive="active">Covid details based on country name</a><br>
+      <a routerLink="/countries-details" routerLinkActive="active">Covid details based on country code</a>
+    </nav>

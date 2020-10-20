@@ -1,0 +1,22 @@
+
+<h1>Countries List</h1>
+
+<div class="table">
+ 
+<div class="css-table-header">
+   <div>Name</div>
+   <div>Code2 </div>
+   <div>Code3</div>
+   <div>Latitude</div>
+   <div>Longitude</div>
+</div>
+<div class="css-table-body">
+    <div class="css-table-row" *ngFor="let item of items"> 
+     <!--  {{r.CriticalCases}} {{r.Deaths}} {{r.Recovered}} -->
+     <div>{{item.name}}</div>
+     <div>{{item.alpha2code}}</div>
+     <div>{{item.alpha3code}}</div>
+     <div>{{item.latitude}}</div>
+     <div>{{item.longitude}}</div>
+</div>
+</div></div>
