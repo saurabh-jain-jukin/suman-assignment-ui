@@ -1,9 +1,18 @@
 
-<h1>Countries List</h1>
+<h1>Countries <button  type="button" class="btn btn-outline-primary"  (click)="navigateBack()" style="right: 100;">Go Back</button></h1>
+ <div class="form-group">
+   <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+</div>
+<div class="d-flex justify-content-center" *ngIf="hideloader"> 
+   <div class="spinner-border" role="status"> 
+       <span class="sr-only" id="loading"></span> 
+   </div> 
+</div> 
 
 <div class="table">
  
 <div class="css-table-header">
+   <div>Favourite</div>
    <div>Name</div>
    <div>Code2 </div>
    <div>Code3</div>
@@ -11,12 +20,25 @@
    <div>Longitude</div>
 </div>
 <div class="css-table-body">
-    <div class="css-table-row" *ngFor="let item of items"> 
-     <!--  {{r.CriticalCases}} {{r.Deaths}} {{r.Recovered}} -->
-     <div>{{item.name}}</div>
+    <div class="css-table-row" *ngFor="let item of items | filter:term"> 
+   
+      <div>
+         <span class="icon">
+           <i [ngClass]=" this.marked ? 'filled' :'' "
+              class="fa fa-star"
+              aria-hidden="true" (click)="markFavourite(item.name,marked)"></i>
+         </span>
+       </div>
+
+
+      <div> <a role="button" style="color: blue;" (click)="getCountryDetailsByCode(item.alpha2code)" >{{item.name}}</a></div>
+  
      <div>{{item.alpha2code}}</div>
      <div>{{item.alpha3code}}</div>
      <div>{{item.latitude}}</div>
      <div>{{item.longitude}}</div>
+
+  
+     <!-- <i class="fas fa-star"></i> -->
 </div>
 </div></div>

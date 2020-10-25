@@ -1,6 +1,10 @@
 
 <h1>Country wise Covid Details</h1>
-
+<div class="d-flex justify-content-center" *ngIf="hideloader"> 
+    <div class="spinner-border" role="status"> 
+        <span class="sr-only" id="loading"> <p>Loading...</p></span> 
+    </div> 
+</div> 
     <div class="table">
      
     <div class="css-table-header">
@@ -24,5 +28,7 @@
    
       <a routerLink="/countries" routerLinkActive="active">List of Countries</a><br>
       <a routerLink="/input-page" routerLinkActive="active">Covid details based on country name</a><br>
-      <a routerLink="/countries-details" routerLinkActive="active">Covid details based on country code</a>
+      <a routerLink="/input-page" routerLinkActive="active">Covid details based on country code</a>
     </nav>
+
+   

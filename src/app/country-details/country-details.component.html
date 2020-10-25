@@ -1,5 +1,13 @@
 <h1>Country Details</h1>
 
+<div id="hideMe" class="row"  *ngIf="showMsg">
+    <div class="col-xs-12">
+      <p class="alert alert-success">
+          <strong>Comment added successfully!!</strong>
+      </p>
+    </div>
+  </div>
+
 <div>Country name: {{items.country}}</div>
 <div>Country Code: {{items.code}}</div>
 <div>confirmed:{{items.confirmed}}</div>
@@ -11,4 +19,10 @@
 <div>lastChange: {{items.lastChange}}</div>
 <div>lastUpdate: {{items.lastUpdate}}</div>
 <div>Is favourite: {{items.favourite}}</div>
-<div>comments: {{items.comments}}</div>
+<div>comments: {{items.comments}}
+    <div class="form-group">
+ Add Comments: <input type="text" class="form-control" name="comment"  [(ngModel)]="comment"> 
+    <button  type="button" class="btn btn-outline-primary"  (click)="addComment()">Submit</button></div>
+</div>
+<div>
+<button  type="button" class="btn btn-outline-primary"  (click)="navigateBack()">Go Back</button></div>

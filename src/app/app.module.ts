@@ -8,6 +8,9 @@ import { CountriesComponent } from './countries/countries.component';
 import { CountryDetailsComponent } from './country-details/country-details.component';
 import { InputPageComponent } from './input-page/input-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpModule
+    HttpModule,
+    Ng2SearchPipeModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

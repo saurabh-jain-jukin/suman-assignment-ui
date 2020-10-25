@@ -1,1 +1,21 @@
-<p>input-page works!</p>
+<form><h2> Search using Country name or Country code</h2>
+
+    <div id="hideMe" class="row"  *ngIf="showMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success">
+              <strong>{{error}}</strong>
+          </p>
+        </div>
+      </div>
+<div class="form-group">
+
+    <div ><input type="text" class="form-control" name="countryCode" placeholder="country code"  [(ngModel)]="code">
+        <button type="button" class="btn btn-outline-primary" (click)="getCountryDetailsByCode()">Search</button>
+    </div>
+        
+
+        <div> <input type="text" class="form-control" placeholder="country name"  name="countryName" [(ngModel)]="name"> </div>
+        <button  type="button" class="btn btn-outline-primary" (click)="getCountryDetailsByName()">Search</button>
+ </div>
+<button type="button" class="btn btn-outline-primary" (click)="navigateBack()">Go Back</button>
+</form>

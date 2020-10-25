@@ -26,3 +26,12 @@
   text-align: center;
   border: 1px solid rgb(255, 255, 255);
   }
+
+  .icon{
+    display:inline-block;
+    margin-right:3px;
+    cursor:pointer;
+    color:#ccc;
+}
+.icon:hover{color:#006dcc;}
+.filled {color:#006dcc;}

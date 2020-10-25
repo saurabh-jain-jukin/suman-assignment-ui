@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { BackendService } from '../backend.service';
 import { CountryDetails } from '../model/country-details';
+import {CommentsRequest} from '../model/comments-request';
+import { Router, NavigationStart } from '@angular/router';
+import { Location } from '@angular/common';
+import {catchError, finalize, tap} from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-country-details',
@@ -8,32 +12,32 @@ import { CountryDetails } from '../model/country-details';
   styleUrls: ['./country-details.component.css']
 })
 export class CountryDetailsComponent implements OnInit {
+ public items: CountryDetails;
+  public comment: string;
+  private data: CommentsRequest;
+  public showMsg = false;
 
-  public items : CountryDetails;
-  constructor(public backendService: BackendService) { }
 
-  ngOnInit(): void {
-   this.getCountryDetailsByCode();
-  }
+  constructor(public backendService: BackendService, public location: Location) { }
+ngOnInit(): void{
+this.items = this.backendService.data;
+}
 
-getCountryDetailsByCode(){
- this.backendService.getCountryDetailsByCode().then(
-    item => {
-    this.items = item;
+addComment(): void{
+  this.backendService.addComments(this.comment , this.items.country).pipe(
+    tap(item => {
+      this.items = item;
+      this.showMsg = true;
+      this.comment = "";
     },
     err => {
     console.log(err);
-    });
+    })).subscribe();
+}
+
+navigateBack(): void {
+ this.location.back();
+}
+
   }
 
-  getCountryDetailsByName(){
-    this.backendService.getCountryDetailsByName().then(
-       item => {
-       this.items = item;
-       },
-       err => {
-       console.log(err);
-       });
-     }
-
-}

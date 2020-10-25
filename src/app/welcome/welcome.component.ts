@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Inject} from '@angular/core';
 import { BackendService } from '../backend.service';
 import { OverallReport } from '../model/overall-report';
 
@@ -9,19 +9,23 @@ import { OverallReport } from '../model/overall-report';
 })
 export class WelcomeComponent implements OnInit {
   public items : OverallReport;
+  public hideloader: boolean;
   constructor(public backendService: BackendService) { }
 
   ngOnInit(): void {
    this.getOverallReport();
+   this.hideloader = true;
   }
 
-getOverallReport(){
+getOverallReport(): void{
  this.backendService.findAll().then(
     item => {
     this.items = item;
+    this.hideloader = false;
     },
     err => {
     console.log(err);
     });
   }
+
 }

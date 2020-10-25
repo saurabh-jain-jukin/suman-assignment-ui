@@ -6,6 +6,7 @@ import { CountryDetailsComponent } from './country-details/country-details.compo
 import { InputPageComponent } from './input-page/input-page.component';
 
 const routes: Routes = [
+  {path:  '', pathMatch:  'full', redirectTo:  'home'},
   {
     path: 'countries',
     component: CountriesComponent
@@ -19,7 +20,7 @@ const routes: Routes = [
     component: InputPageComponent
   },
   {
-    path: '**',
+    path: 'home',
     component: WelcomeComponent
   }
 ];
